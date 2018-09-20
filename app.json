@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/classic/classic"
+  ],
+  "window":{
+    "navigationBarBackgroundColor":"#f00",
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText":"独孤求败",
+    "navigationStyle":"default",
+    "backgroundColor":"#f00",
+    "enablePullDownRefresh":true
+  }
+}
