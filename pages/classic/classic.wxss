@@ -1,1 +1,35 @@
 /* pages/classic/classic.wxss */
+.contain{
+  display:flex;
+  height:500px;
+  flex-direction:row;
+ align-items:flex-end;
+  align-content:center;
+  background:#999;
+}
+.box{
+  width:100px;
+  height:200px;
+  
+}
+.box1{
+  background:#f00;
+  flex:0 2 auto;
+}
+.box2{
+  background:#0f0;
+  align-self:flex-start;
+}
+.box3{
+  background:#00f;
+  
+}
+.box4{
+  background:#000;
+}
+.box5{
+  background:#aaa;
+}
+.box6{
+  background:#bbb;
+}
