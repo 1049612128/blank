@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"compileType": "miniprogram",
+	"compileType": "plugin",
 	"libVersion": "2.0.4",
 	"appid": "wx2952c31b1aa3290d",
 	"projectname": "blank",
