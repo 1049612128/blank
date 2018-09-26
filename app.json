@@ -3,8 +3,8 @@
     "pages/classic/classic"
   ],
   "window":{
-    "navigationBarBackgroundColor":"#f00",
-    "navigationBarTextStyle":"white",
+    "navigationBarBackgroundColor":"#fff",
+    "navigationBarTextStyle":"black",
     "navigationBarTitleText":"独孤求败",
     "navigationStyle":"default",
     "backgroundColor":"#f00",

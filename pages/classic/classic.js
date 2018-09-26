@@ -1,3 +1,7 @@
+import { ClassicModel } from "../../models/classic.js"
+import { likeModel } from "../../models/like.js"
+let Classic = new ClassicModel();
+let like = new likeModel();
 // pages/classic/classic.js
 Page({
 
@@ -12,9 +16,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    Classic.getLaster((res)=>{
+       this.setData({
+         classData: res
+       })
+    })
+     
 
   },
-
+  onLike: function (ev) {
+    let behavior =ev.detail.behavior;
+    like.like(behavior, this.data.classData.id,this.data.classData.type)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

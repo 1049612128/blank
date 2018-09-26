@@ -1,5 +1,3 @@
-<view class="contain">
-  <view class="box box1">1</view>
-  <view class="box box2">2</view>
-  <view class="box box3">3</view>
-</view>
+<v-epsoide />
+<v-like bind:like="onLike" like="{{classData.like_status}}" count="{{classData.fav_nums}}"/>
+<v-movie img="{{classData.image}}" content="{{classData.content}}"/>
