@@ -1,7 +1,7 @@
 import { ClassicModel } from "../../models/classic.js"
-import { likeModel } from "../../models/like.js"
+import { LikeModel } from "../../models/like.js"
 let Classic = new ClassicModel();
-let like = new likeModel();
+let like = new LikeModel();
 // pages/classic/classic.js
 Page({
 
@@ -10,7 +10,9 @@ Page({
    */
   data: {
     latest:true,
-    first:false
+    first:false,
+    likeCount:0,
+    likeStatus:false
   },
 
   /**
@@ -18,8 +20,11 @@ Page({
    */
   onLoad: function (options) {
     Classic.getLaster((res)=>{
+      //this._getLikeStatus(res.id, res.type)
        this.setData({
-         classData: res
+         classData: res,
+         likeCount: res.fav_nums,
+         likeStatus: res.like_status
        })
     })
      
@@ -28,6 +33,31 @@ Page({
   onLike: function (ev) {
     let behavior =ev.detail.behavior;
     like.like(behavior, this.data.classData.id,this.data.classData.type)
+  },
+  onNext:function(e){
+    this._onupdata("next")
+  },
+  _onupdata: function (nextOrPreviou){
+    let index = this.data.classData.index;
+    Classic.getClassic(index, nextOrPreviou, (res) => {
+      this._getLikeStatus(res.id,res.type)
+      this.setData({
+        classData: res,
+        latest: Classic.isLaster(res.index),
+        first: Classic.isFirst(res.index)
+      })
+    })
+  },
+  onPrevious:function(e){
+    this._onupdata("previous")
+  },
+  _getLikeStatus: function (artId,categroy){
+    like.getClassicLikeStatus(artId, categroy,(res)=>{
+      this.setData({
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

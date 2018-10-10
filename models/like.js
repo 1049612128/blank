@@ -1,5 +1,5 @@
 import { HTTP } from "../util/http.js"
-class likeModel extends HTTP{
+class LikeModel extends HTTP{
   like(behavior,artID,category){
     let url=behavior=="like"?"like":"like/cancel"
     this.request({
@@ -11,6 +11,12 @@ class likeModel extends HTTP{
       }
     })
   }
+  getClassicLikeStatus(artId,categroy,sCallback){
+    this.request({
+      url: 'classic/' + categroy + "/" + artId+'/favor',
+      success: sCallback
+    })
+  }
 } 
 
-export { likeModel}
+export { LikeModel}

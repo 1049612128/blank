@@ -16,13 +16,23 @@ Component({
     leftSrc:"images/triangle@left.png",
     disLeftSrc:"images/triangle.dis@left.png",
     rightSrc:"images/triangle@right.png",
-    disRightSrc:"images/triangle@dis.png"
+    disRightSrc:"images/triangle.dis@right.png"
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    onLeft:function(e){
+      if (!this.properties.latest){
+        this.triggerEvent("left", {}, {})
+      }
+     
+    },
+    onRight:function(e){
+      if (!this.properties.first) {
+        this.triggerEvent("right", {}, {})
+      }
+    }
   }
 })
